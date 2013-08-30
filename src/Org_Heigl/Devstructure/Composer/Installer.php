@@ -71,7 +71,6 @@ class Installer extends LibraryInstaller
 //            ));
 //        }
         parent::__construct($a, $b, $c);
-        echo $this->getTemplatePath($b);
     }
 
     protected function getTemplatePath($package)
@@ -91,7 +90,7 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        echo $this->getTemplatePath();
+        echo $this->getTemplatePath($package);
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath());
         foreach ($iterator as $item) {
             if ($item->isDot()) {
@@ -131,7 +130,7 @@ class Installer extends LibraryInstaller
      */
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
-        echo realpath($this->getTemplatePath());
+        echo realpath($this->getTemplatePath($target));
         $umask = umask(0000);
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath());
         foreach ($iterator as $item) {
