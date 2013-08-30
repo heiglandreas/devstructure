@@ -63,10 +63,10 @@ class Installer implements InstallerInterface
      */
     public function __construct()
     {
-        $this->templatePath = realpath(__DIR__ . '/../template');
+        $this->templatePath = realpath(__DIR__ . '/../../../../../template');
         if (! file_Exists($this->templatePath)) {
             throw new \UnexpectedValueException(sprintf(
-                'THe templatefolder "$s" could not be found',
+                'The templatefolder "%s" could not be found',
                 $this->templatePath
             ));
         }
