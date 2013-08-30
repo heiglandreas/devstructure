@@ -61,8 +61,8 @@ class Installer extends LibraryInstaller
      * Instantiate the class
      *
      */
-//    public function __construct()
-//    {
+    public function __construct($a, $b, $c = 'library')
+    {
 //        $this->templatePath = realpath(__DIR__ . '/../../../../template');
 //        if (! file_Exists($this->templatePath)) {
 //            throw new \UnexpectedValueException(sprintf(
@@ -70,7 +70,9 @@ class Installer extends LibraryInstaller
 //                __DIR__ . '/../../../../template'
 //            ));
 //        }
-//    }
+        parent::__construct($a, $b, $c);
+        echo $this->composer->getConfig()->get('home');
+    }
 
     /**
      * Checks that provided package is installed.
