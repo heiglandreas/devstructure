@@ -90,7 +90,7 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        echo realpath($this->getTemplatePath());
+        echo $this->getTemplatePath();
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath());
         foreach ($iterator as $item) {
             if ($item->isDot()) {
