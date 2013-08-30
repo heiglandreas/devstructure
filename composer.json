@@ -1,5 +1,5 @@
 {
-    "name": "mdv/devstructure-install",
+    "name": "org_heigl/devstructure",
     "type": "devstructure-installer",
     "require": {
         "mdv/devstructure-installer": "*"
