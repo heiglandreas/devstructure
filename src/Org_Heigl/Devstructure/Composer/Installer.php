@@ -74,9 +74,7 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        echo 'B::';
-        return parent::isInstalled($repo, $package);
-        print 'A::' . $this->getTemplatePath($package);
+        return false;
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($package));
         foreach ($iterator as $item) {
             if ($item->isDot()) {
@@ -92,8 +90,6 @@ class Installer extends LibraryInstaller
 
     public function supports($packageType)
     {
-        echo 'C::';
-        echo parent::supports($packageType)?'true':'false';
         return parent::supports($packageType);
     }
     /**
@@ -104,8 +100,6 @@ class Installer extends LibraryInstaller
      */
     public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        echo 'D::';
-        return parent::install($repo, $package);
        return $this->update($repo, null, $package);
     }
 
