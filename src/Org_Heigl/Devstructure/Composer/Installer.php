@@ -71,7 +71,7 @@ class Installer extends LibraryInstaller
 //            ));
 //        }
         parent::__construct($a, $b, $c);
-        echo $this->composer->getConfig()->get('home');
+        var_Dump($this->composer->getConfig()->all());
     }
 
     /**
