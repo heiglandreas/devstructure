@@ -64,6 +64,13 @@ class Installer extends LibraryInstaller
              . $this->templatePath;
     }
 
+    public function __construct($a, $b, $c = 'composer-installer')
+    {
+        parent::__construct($a, $b, $c);
+
+        echo $this->type;
+    }
+
     /**
      * Checks that provided package is installed.
      *
@@ -74,7 +81,7 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        error_log($this->getTemplatePath($package));
+        print $this->getTemplatePath($package);
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($package));
         foreach ($iterator as $item) {
             if ($item->isDot()) {
