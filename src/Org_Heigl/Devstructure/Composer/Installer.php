@@ -158,7 +158,7 @@ class Installer extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        echo $this->composer->getConfig()->get('home');
+        echo realpath($this->composer->getConfig()->get('home'));
         return '/';
     }
 
