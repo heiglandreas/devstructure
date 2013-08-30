@@ -71,6 +71,7 @@ class Installer extends LibraryInstaller
 //            ));
 //        }
         parent::__construct($a, $b, $c);
+        echo $this->getTemplatePath();
     }
 
     protected function getTemplatePath()
