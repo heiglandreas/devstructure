@@ -1,0 +1,7 @@
+{
+    "name": "mdv/devstructure-install",
+    "type": "devstructure-installer",
+    "require": {
+        "mdv/devstructure-installer": "*"
+    }
+}
