@@ -88,6 +88,10 @@ class Installer extends LibraryInstaller
         return true;
     }
 
+    public function supports($packageType)
+    {
+        return true;
+    }
     /**
      * Installs specific package.
      *
