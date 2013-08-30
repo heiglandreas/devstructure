@@ -118,11 +118,13 @@ class Installer extends LibraryInstaller
      */
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
-        vaR_Dump($repo);
-        var_Dump($target);
+        echo realpath($this->composer->getConfig()->getHome());
         $umask = umask(0000);
         $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
+            if ($item->isDot()) {
+                continue;
+            }
             $folder = $this->getTargetPath($target, $item);
             echo $folder . "\n";
             if (file_exists($folder) && false == strpos('.dist', $item->getFileName())) {
