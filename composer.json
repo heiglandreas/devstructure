@@ -1,6 +1,6 @@
 {
     "name" : "org_heigl/devstructure",
-    "type" : "org_heigl-devstructure",
+    "type" : "org-heigl-devstructure",
     "require" : {
         "org_heigl/devstructure-installer": "*"
     },
