@@ -68,23 +68,8 @@ class Installer extends LibraryInstaller
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
         return false;
-        $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($package));
-        foreach ($iterator as $item) {
-            if ($item->isDot()) {
-                continue;
-            }
-            $folder = $this->getTargetPath($package, $item);
-            if (! file_exists($folder)) {
-                return false;
-            }
-        }
-        return true;
     }
 
-    public function supports($packageType)
-    {
-        return parent::supports($packageType);
-    }
     /**
      * Installs specific package.
      *
@@ -151,7 +136,7 @@ class Installer extends LibraryInstaller
      *
      * @return string
      */
-    public function getTargetPath(PackageInterface $package, \SplFileInfo $file)
+    protected function getTargetPath(PackageInterface $package, \SplFileInfo $file)
     {
 
         $templatePath = $this->getTemplatePath($package);
