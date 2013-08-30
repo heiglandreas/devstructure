@@ -94,8 +94,6 @@ class Installer implements InstallerInterface
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        vaR_Dump($repo);
-        var_Dump($package);
         $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
             $folder = $this->getTargetPath($package, $item);
@@ -132,6 +130,8 @@ class Installer implements InstallerInterface
      */
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
+        vaR_Dump($repo);
+        var_Dump($target);
         $umask = umask(0000);
         $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
