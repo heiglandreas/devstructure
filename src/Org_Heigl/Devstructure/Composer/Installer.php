@@ -67,7 +67,7 @@ class Installer implements InstallerInterface
         if (! file_Exists($this->templatePath)) {
             throw new \UnexpectedValueException(sprintf(
                 'The templatefolder "%s" could not be found',
-                $this->templatePath
+                __DIR__ . '/../../../../template'
             ));
         }
     }
