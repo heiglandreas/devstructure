@@ -176,8 +176,8 @@ class Installer extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        echo parent::getInstallPath($package) . "\n";
-        return parent::getInstallPath($package);
+        echo get_cwd() . "\n";
+        return get_cwd();
         echo 'C::' . realpath($this->composer->getConfig()->get('home'));
         return '/';
     }
