@@ -55,7 +55,7 @@ class Installer extends LibraryInstaller
      *
      * @var string $templatePath
      */
-    protected $templatePath = null;
+    protected $templatePath = 'template';
 
     /**
      * Instantiate the class
@@ -75,6 +75,13 @@ class Installer extends LibraryInstaller
         echo getcwd();
     }
 
+    protected function getTemplatePath()
+    {
+        return $this->getPackageBasePAth()
+             . DIRECTORY_SEPARATOR
+             . $this->templatePath;
+    }
+
     /**
      * Checks that provided package is installed.
      *
@@ -85,8 +92,11 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        $iterator = new \DirectoryIteratorIterator($this->templatePath);
+        $iterator = new \DirectoryIteratorIterator($this->getTemplatePath());
         foreach ($iterator as $item) {
+            if ($item->isDot()) {
+                continue;
+            }
             $folder = $this->getTargetPath($package, $item);
             if (! file_exists($folder)) {
                 return false;
@@ -121,9 +131,9 @@ class Installer extends LibraryInstaller
      */
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
-        echo realpath($this->composer->getConfig()->getHome());
+        echo realpath($this->getTemplatePath());
         $umask = umask(0000);
-        $iterator = new \DirectoryIteratorIterator($this->templatePath);
+        $iterator = new \DirectoryIteratorIterator($this->getTemplatePath());
         foreach ($iterator as $item) {
             if ($item->isDot()) {
                 continue;
