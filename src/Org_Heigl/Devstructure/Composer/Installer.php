@@ -94,6 +94,8 @@ class Installer implements InstallerInterface
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
+        vaR_Dump($repo);
+        var_Dump($package);
         $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
             $folder = $this->getTargetPath($package, $item);
