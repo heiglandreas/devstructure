@@ -70,6 +70,12 @@ class Installer extends LibraryInstaller
         return false;
     }
 
+    public function supports($packageType)
+    {
+        return 'org_heigl-devstructure' === $packageType;
+    }
+
+
     /**
      * Installs specific package.
      *
