@@ -72,6 +72,7 @@ class Installer extends LibraryInstaller
 //        }
         parent::__construct($a, $b, $c);
         var_Dump($this->composer->getConfig()->all());
+        echo getcwd();
     }
 
     /**
