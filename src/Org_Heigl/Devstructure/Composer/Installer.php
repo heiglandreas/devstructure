@@ -66,9 +66,8 @@ class Installer extends LibraryInstaller
 
     public function __construct($a, $b, $c = 'composer-installer')
     {
+        echo 'A::';
         parent::__construct($a, $b, $c);
-
-        echo $this->type;
     }
 
     /**
@@ -81,7 +80,9 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        print $this->getTemplatePath($package);
+        echo 'B::';
+        return parent::isInstalled($repo, $package);
+        print 'A::' . $this->getTemplatePath($package);
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($package));
         foreach ($iterator as $item) {
             if ($item->isDot()) {
@@ -97,7 +98,8 @@ class Installer extends LibraryInstaller
 
     public function supports($packageType)
     {
-        return true;
+        echo 'C::';
+        return parent::supports($packageType);
     }
     /**
      * Installs specific package.
@@ -107,6 +109,8 @@ class Installer extends LibraryInstaller
      */
     public function install(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
+        echo 'D::';
+        return parent::install($repo, $package);
        return $this->update($repo, null, $package);
     }
 
@@ -125,7 +129,9 @@ class Installer extends LibraryInstaller
      */
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
-        echo realpath($this->getTemplatePath($target));
+        echo 'E::';
+        return parent::update($repo, $initial, $target);
+        echo 'B::' . realpath($this->getTemplatePath($target));
         $umask = umask(0000);
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($target));
         foreach ($iterator as $item) {
@@ -133,7 +139,7 @@ class Installer extends LibraryInstaller
                 continue;
             }
             $folder = $this->getTargetPath($target, $item);
-            echo $folder . "\n";
+            echo 'D::' . $folder . "\n";
             if (file_exists($folder) && false == strpos('.dist', $item->getFileName())) {
                 continue;
             }
@@ -156,7 +162,8 @@ class Installer extends LibraryInstaller
      */
     public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        return $this;
+        echo 'F::';
+        return parent::uninstall($repo, $package);
     }
 
     /**
@@ -167,7 +174,9 @@ class Installer extends LibraryInstaller
      */
     public function getInstallPath(PackageInterface $package)
     {
-        echo realpath($this->composer->getConfig()->get('home'));
+        echo 'G::';
+        return parent::getInstallPath($package);
+        echo 'C::' . realpath($this->composer->getConfig()->get('home'));
         return '/';
     }
 
