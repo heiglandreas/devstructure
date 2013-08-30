@@ -57,13 +57,6 @@ class Installer extends LibraryInstaller
      */
     protected $templatePath = 'template';
 
-    protected function getTemplatePath($package)
-    {
-        return $this->getPackageBasePAth($package)
-             . DIRECTORY_SEPARATOR
-             . $this->templatePath;
-    }
-
     public function __construct($a, $b, $c = 'composer-installer')
     {
         echo 'A::';
@@ -131,9 +124,6 @@ class Installer extends LibraryInstaller
      */
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
-        echo 'E::';
-        return parent::update($repo, $initial, $target);
-        echo 'B::' . realpath($this->getTemplatePath($target));
         $umask = umask(0000);
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($target));
         foreach ($iterator as $item) {
@@ -141,7 +131,6 @@ class Installer extends LibraryInstaller
                 continue;
             }
             $folder = $this->getTargetPath($target, $item);
-            echo 'D::' . $folder . "\n";
             if (file_exists($folder) && false == strpos('.dist', $item->getFileName())) {
                 continue;
             }
@@ -164,22 +153,7 @@ class Installer extends LibraryInstaller
      */
     public function uninstall(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        echo 'F::';
-        return parent::uninstall($repo, $package);
-    }
-
-    /**
-     * Returns the installation path of a package
-     *
-     * @param  PackageInterface $package
-     * @return string           path
-     */
-    public function getInstallPath(PackageInterface $package)
-    {
-        echo getcwd() . "\n";
-        return getcwd();
-        echo 'C::' . realpath($this->composer->getConfig()->get('home'));
-        return '/';
+        //
     }
 
     /**
@@ -192,8 +166,18 @@ class Installer extends LibraryInstaller
      */
     public function getTargetPath(PackageInterface $package, \SplFileInfo $file)
     {
-        $templatePath = $this->templatePath;
+
+        $templatePath = $this->getTemplatePath($package);
+
         $relativeFilePath = substr($file->getPathname(), strlen($templatePath));
+
         return $package->getTargetPath() . DIRECTORY_SEPARATOR . $relativeFilePath;
+    }
+
+    protected function getTemplatePath($package)
+    {
+        return $this->getPackageBasePAth($package)
+        . DIRECTORY_SEPARATOR
+        . $this->templatePath;
     }
 }
