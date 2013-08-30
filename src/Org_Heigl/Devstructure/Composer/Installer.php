@@ -30,7 +30,7 @@
 
 namespace Org_Heigl\Devstructure\Composer;
 
-use Composer\Installer\InstallerInterface;
+use Composer\Installer\LibraryInstaller;
 use Composer\Package\PackageInterface;
 use Composer\Repository\InstalledRepositoryInterface;
 
@@ -48,7 +48,7 @@ use Composer\Repository\InstalledRepositoryInterface;
  * @since     27.08.13
  * @link      http://dev.mdv.wdv.de/gitlab/mdv/devstructure
  */
-class Installer implements InstallerInterface
+class Installer extends LibraryInstaller
 {
     /**
      * Path to the folder containing the directory-template
@@ -70,18 +70,6 @@ class Installer implements InstallerInterface
 //                __DIR__ . '/../../../../template'
 //            ));
 //        }
-    }
-    /**
-     * Decides if the installer supports the given type
-     *
-     * @param  string $packageType
-     * @return bool
-     */
-    public function supports($packageType)
-    {
-        echo $packageType;
-        return true;
-        return 'devstructure-installer' == $packageType;
     }
 
     /**
@@ -170,7 +158,8 @@ class Installer implements InstallerInterface
      */
     public function getInstallPath(PackageInterface $package)
     {
-        return '';
+        echo $this->vendorDir;
+        return '/';
     }
 
     /**
