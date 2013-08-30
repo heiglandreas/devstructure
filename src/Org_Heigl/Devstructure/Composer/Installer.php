@@ -57,22 +57,6 @@ class Installer extends LibraryInstaller
      */
     protected $templatePath = 'template';
 
-    /**
-     * Instantiate the class
-     *
-     */
-    public function __construct($a, $b, $c = 'library')
-    {
-//        $this->templatePath = realpath(__DIR__ . '/../../../../template');
-//        if (! file_Exists($this->templatePath)) {
-//            throw new \UnexpectedValueException(sprintf(
-//                'The templatefolder "%s" could not be found',
-//                __DIR__ . '/../../../../template'
-//            ));
-//        }
-        parent::__construct($a, $b, $c);
-    }
-
     protected function getTemplatePath($package)
     {
         return $this->getPackageBasePAth($package)
@@ -90,7 +74,7 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        echo $this->getTemplatePath($package);
+        error_log($this->getTemplatePath($package));
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath($package));
         foreach ($iterator as $item) {
             if ($item->isDot()) {
