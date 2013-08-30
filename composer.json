@@ -7,8 +7,5 @@
     },
     "extra": {
         "class": "Org_Heigl\\Devstructure\\Composer\\Installer"
-    },
-    "require": {
-        "org_heigl/devpackages": "*"
     }
 }
