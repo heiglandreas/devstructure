@@ -71,8 +71,6 @@ class Installer extends LibraryInstaller
 //            ));
 //        }
         parent::__construct($a, $b, $c);
-        var_Dump($this->composer->getConfig()->all());
-        echo getcwd();
     }
 
     protected function getTemplatePath()
@@ -92,6 +90,7 @@ class Installer extends LibraryInstaller
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
+        echo realpath($this->getTemplatePath());
         $iterator = new \DirectoryIteratorIterator($this->getTemplatePath());
         foreach ($iterator as $item) {
             if ($item->isDot()) {
