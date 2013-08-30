@@ -97,7 +97,6 @@ class Installer implements InstallerInterface
         $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
             $folder = $this->getTargetPath($package, $item);
-            $folder = $item->getFilePath();
             if (! file_exists($folder)) {
                 return false;
             }
@@ -135,6 +134,7 @@ class Installer implements InstallerInterface
         $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
             $folder = $this->getTargetPath($target, $item);
+            echo $folder . "\n";
             if (file_exists($folder) && false == strpos('.dist', $item->getFileName())) {
                 continue;
             }
