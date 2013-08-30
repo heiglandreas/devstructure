@@ -9,6 +9,6 @@
         "class": "Org_Heigl\\Devstructure\\Composer\\Installer"
     },
     "require": {
-        "org_heigl/devstructure": "*"
+        "org_heigl/devpackages": "*"
     }
 }

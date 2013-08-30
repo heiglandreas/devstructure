@@ -28,7 +28,7 @@
  * @link      http://dev.mdv.wdv.de/gitlab/mdv/devstructure
  */
 
-namespace Mdv\Devstructure\Composer;
+namespace Org_Heigl\Devstructure\Composer;
 
 use Composer\Installer\InstallerInterface;
 use Composer\Package\PackageInterface;
@@ -79,6 +79,8 @@ class Installer implements InstallerInterface
      */
     public function supports($packageType)
     {
+        echo $packageType;
+        return true;
         return 'devstructure-installer' == $packageType;
     }
 
