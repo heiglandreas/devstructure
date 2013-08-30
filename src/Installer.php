@@ -65,7 +65,7 @@ class Installer implements InstallerInterface
     {
         $this->templatePath = realpath(__DIR__ . '/../template');
         if (! file_Exists($this->templatePath)) {
-            throw new UnexpectedValueException(sprintf(
+            throw new \UnexpectedValueException(sprintf(
                 'THe templatefolder "$s" could not be found',
                 $this->templatePath
             ));
@@ -94,7 +94,7 @@ class Installer implements InstallerInterface
      */
     public function isInstalled(InstalledRepositoryInterface $repo, PackageInterface $package)
     {
-        $iterator = new DirectoryIteratorIterator($this->templatePath);
+        $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
             $folder = $this->getTargetPath($package, $item);
             $folder = $item->getFilePath();
@@ -132,7 +132,7 @@ class Installer implements InstallerInterface
     public function update(InstalledRepositoryInterface $repo, PackageInterface $initial, PackageInterface $target)
     {
         $umask = umask(0000);
-        $iterator = new DirectoryIteratorIterator($this->templatePath);
+        $iterator = new \DirectoryIteratorIterator($this->templatePath);
         foreach ($iterator as $item) {
             $folder = $this->getTargetPath($target, $item);
             if (file_exists($folder) && false == strpos('.dist', $item->getFileName())) {
