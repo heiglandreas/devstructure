@@ -2,7 +2,7 @@
     "name" : "org_heigl/devstructure",
     "type" : "org-heigl-devstructure",
     "require" : {
-        "org-heigl/devstructure-installer"
+        "org-heigl/devstructure-installer": "*"
     },
     "repository" : [{
         "type" : "vcs",
