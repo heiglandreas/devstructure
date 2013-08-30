@@ -67,7 +67,7 @@ class Installer extends LibraryInstaller
     public function __construct($a, $b, $c = 'composer-installer')
     {
         echo 'A::';
-        
+
         parent::__construct($a, $b, $c);
     }
 
@@ -100,6 +100,7 @@ class Installer extends LibraryInstaller
     public function supports($packageType)
     {
         echo 'C::';
+        echo parent::supports($packageType)?'true':'false';
         return parent::supports($packageType);
     }
     /**
