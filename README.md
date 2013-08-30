@@ -27,10 +27,6 @@ content:
     "require-dev" : {
         "mdv/devpackages" : "dev-master"
     },
-    "repositories": [{
-        "type": "composer",
-        "url": "http://packages.wdv.de/"
-    }],
     "minimum-stability": "dev",
     "config" : {
         "bin-dir" : "bin"
