@@ -60,13 +60,13 @@ You can use the file ```example.composer.json``` as template.
 ### Install ```composer``` 
 
 ```bash
-curl -sS https://getcomposer.org/installer | php -- --install-dir=bin
+curl -sS https://getcomposer.org/installer | php
 ````
 
 ### Run composer
 
 ```bash
-./bin/composer install
+php composer.phar install
 ````
 
 ### Use your complete development infrastructure
