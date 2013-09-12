@@ -1,6 +1,6 @@
 {
     "require-dev" : {
-        "mdv/devpackages" : "dev-master"
+        "org_heigl/devstructure" : "dev-master"
     },
     "minimum-stability": "dev",
     "config" : {

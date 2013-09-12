@@ -25,7 +25,7 @@ content:
 ```JSON
 {
     "require-dev" : {
-        "mdv/devpackages" : "dev-master"
+        "org_heigl/devpackages" : "dev-master"
     },
     "minimum-stability": "dev",
     "config" : {
