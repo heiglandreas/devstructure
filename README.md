@@ -36,7 +36,9 @@ cd MyNewProjectFolder
 Either install it by cloning the example-file into your project-folder
 
 ```bash
-curl https://raw.github.com/heiglandreas/
+curl -o composer.json https://raw.github.com/heiglandreas/devstructure/master/example.composer.json
+# OR
+wget https://raw.github.com/heiglandreas/devstructure/master/example.composer.json > composer.json
 ```
 
 Or you create the file with your favourite text-editor. Insert at least the following content
