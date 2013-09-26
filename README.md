@@ -19,8 +19,29 @@ The structure contains the following:
 
 ##Installation
 
-Install it by creating a file called ```composer.json``` with the following
-content:
+### Create your ' soon to be a project'-folder
+
+```bash
+mkdir MyNewProjectFolder
+````
+
+### Move into your newly created project folder
+
+```bash
+cd MyNewProjectFolder
+````
+
+### Create a ```composer.json```-file in your newly created project-folder
+
+Either install it by cloning the example-file into your project-folder
+
+```bash
+curl -o composer.json https://raw.github.com/heiglandreas/devstructure/master/example.composer.json
+# OR
+wget https://raw.github.com/heiglandreas/devstructure/master/example.composer.json > composer.json
+```
+
+Or you create the file with your favourite text-editor. Insert at least the following content
 
 ```JSON
 {
@@ -35,3 +56,20 @@ content:
 ```
 
 You can use the file ```example.composer.json``` as template.
+
+### Install ```composer``` 
+
+```bash
+curl -sS https://getcomposer.org/installer | php
+````
+
+### Run composer
+
+```bash
+php composer.phar install
+````
+
+### Use your complete development infrastructure
+
+Including all of the above tools including cool phing tasks that make your live easier
+
