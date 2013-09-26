@@ -11,7 +11,7 @@ The structure contains the following:
 * **build** - contains all your build artifacts
 * **src**   - contains the sourcecode of your project
 * **doc**   - contains the documentation of your project
-* **doc/api** - contains the output of pgpDocumentor
+* **doc/api** - contains the output of phpDocumentor
 * **doc/coverage** - contains the code-coverage-report
 * **vendor** - contains all the additional libraries that you imported
 * **dist**  - contains the distribution-files of your project
