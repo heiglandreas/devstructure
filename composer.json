@@ -2,7 +2,10 @@
     "name" : "org_heigl/devstructure",
     "type" : "org-heigl-devstructure",
     "require" : {
-        "org_heigl/devstructure-installer": "*",
-        "org_heigl/devpackages" : "*"
-    }
+        "org_heigl/devstructure-installer": "*"
+    },
+    "repositories" : [{
+        "type": "vcs",
+        "url" : "/Volumes/Sites/Sites/devstructure-installer/.git"
+    }]
 }
