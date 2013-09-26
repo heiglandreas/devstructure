@@ -4,5 +4,5 @@
     "require" : {
         "org_heigl/devstructure-installer": "*",
         "org_heigl/devpackages" : "*"
-    },
+    }
 }
