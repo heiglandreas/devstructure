@@ -33,6 +33,6 @@
         <log type="tap" target="build/phpunit/logfile.tap"/>
         <log type="test-xml" target="build/phpunit/logfile.xml" logIncompleteSkipped="false"/>
         <log type="testdox-html" target="build/phpunit/testdox.html"/>
-        <log type="testdox-text" target="build/phpunit/testdox.txt"/-->
+        <log type="testdox-text" target="build/phpunit/testdox.txt"/>
     </logging>
 </phpunit>
