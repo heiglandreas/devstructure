@@ -39,7 +39,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
 
 mb_internal_encoding('UTF-8');
 
-require_once 'vendor/autoloading.php';
+require_once 'vendor/autoload.php';
 
 class UnitTestHelper
 {
